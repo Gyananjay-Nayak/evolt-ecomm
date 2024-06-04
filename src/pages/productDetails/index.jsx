@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getproductDetailsRequest } from '../../stores/products/productActions';
 import { StarRating } from '../../components/rating';
+import { TailSpin } from 'react-loader-spinner';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -35,11 +36,24 @@ const ProductDetails = () => {
 
   return (
     <div>
-      {loading
-        ? 'Loading ...'
-        : productDetails && (
-            <div className="d-flex justify-content-center align-items-center p-lg-3 product-details-wrapper">
-              <div className="product-details-container">
+      <div className="d-flex justify-content-center align-items-center p-lg-3 product-details-wrapper">
+        <div className="product-details-container">
+          {loading ? (
+            <div className="vw-100 h-100 d-flex align-items-center justify-content-center">
+              <TailSpin
+                visible={true}
+                height="80"
+                width="80"
+                color="#888"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+              />
+            </div>
+          ) : (
+            productDetails && (
+              <>
                 <div className="product-image-section">
                   <div className="product-icons mb-1">
                     <div>
@@ -108,9 +122,11 @@ const ProductDetails = () => {
                     <button className="add-to-cart-button">Add to Cart</button>
                   </div>
                 </div>
-              </div>
-            </div>
+              </>
+            )
           )}
+        </div>
+      </div>
     </div>
   );
 };
