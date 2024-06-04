@@ -1,0 +1,12 @@
+.bar-right,
+.bar-left {
+  box-shadow: inset 0px 0px 5px gray !important;
+}
+
+.multi-range-slider .thumb::before {
+  width: 15px;
+  height: 15px;
+  border: 1px solid gray;
+  box-shadow: 0px 0px 4px darkgray, inset 0px 0px 3px gray;
+  top: 50%;
+}

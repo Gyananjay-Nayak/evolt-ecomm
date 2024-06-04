@@ -1,0 +1,39 @@
+/* Star.css */
+.rating-container {
+    display: flex;
+    align-items: center;
+}
+
+.star-container {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+
+.star-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    color: gold;
+    /* Color for filled star */
+}
+
+.star-empty {
+    color: lightgray;
+    /* Color for empty star */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.filled-star {
+    color: gold;
+}
+
+.empty-star {
+    color: lightgray;
+}

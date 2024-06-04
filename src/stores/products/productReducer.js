@@ -57,6 +57,30 @@ const Products = (state, action) => {
         error: action.payload.data ? action.payload.data.errorDescription : ''
       };
       break;
+    case PRODUCT_CONST.GET_CATEGORIES_REQUEST:
+      state = {
+        ...state,
+        categoryLoading: true,
+        categories: null,
+        error: ''
+      };
+      break;
+    case PRODUCT_CONST.GET_CATEGORIES_SUCCESS:
+      state = {
+        ...state,
+        categoryLoading: false,
+        categories: action.payload.statusCode === 200 ? action.payload.data : false,
+        error: ''
+      };
+      break;
+    case PRODUCT_CONST.GET_CATEGORIES_ERROR:
+      state = {
+        ...state,
+        categoryLoading: false,
+        categories: null,
+        error: action.payload.data ? action.payload.data.errorDescription : ''
+      };
+      break;
     default:
       state = { ...state };
       break;
