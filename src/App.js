@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import routes from './routes/allRoutes';
 import ErrorBoundary from './components/ErrorBoundary';
 
@@ -15,7 +15,7 @@ function App() {
               key={eachComponent.path}
             />
           ))}
-          <Route path="/" element={<Navigate to="products" replace />} />
+          {/* <Route path="/" element={<Navigate to="products" replace />} /> */}
         </Routes>
       </ErrorBoundary>
     </>

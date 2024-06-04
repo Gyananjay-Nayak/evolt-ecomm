@@ -3,7 +3,7 @@ import ProductDetails from '../pages/productDetails';
 
 const Routes = [
   {
-    path: '/products',
+    path: '/',
     component: <Products />
   },
   {
