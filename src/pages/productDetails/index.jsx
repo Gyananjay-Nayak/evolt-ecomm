@@ -12,7 +12,7 @@ const ProductDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  const [productDetails, setProductDetails] = useState();
+  const [productDetails, setProductDetails] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const nextProps = useSelector((state) => ({
@@ -21,16 +21,14 @@ const ProductDetails = () => {
   }));
 
   useEffect(() => {
-    const payload = { id };
     setLoading(true);
-    setProductDetails(null);
-    dispatch(getproductDetailsRequest(payload));
-  }, [id]);
+    dispatch(getproductDetailsRequest({ id }));
+  }, [id, dispatch]);
 
   useEffect(() => {
-    if (nextProps.productDetails) {
+    if (nextProps.productDetails && !nextProps.loading) {
       setProductDetails(nextProps.productDetails);
-      setLoading(nextProps.loading);
+      setLoading(false);
     }
   }, [nextProps.productDetails, nextProps.loading]);
 

@@ -39,7 +39,3 @@ export const Star = ({ filling }) => {
 Star.propTypes = {
   filling: PropTypes.number
 };
-
-Star.defaultProps = {
-  filling: 1
-};
